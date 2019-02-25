@@ -12722,7 +12722,7 @@ function tryParse(p, str) {
   } catch(e){
     return error();
   }
-  return p; 
+  return p;
 };
 
 /**
@@ -14295,9 +14295,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	var zPagenav = {
-	
+
 		default: {
 			page: 1,
 			pageSize: 10,
@@ -14310,11 +14310,11 @@ return /******/ (function(modules) { // webpackBootstrap
 			eventName: 'page-change',
 			template: '<nav class="zpagenav">' + '<span class="pagination page-link m-r-1">total:{{total}}</span>' + '<ul class="pagination">' + '<li track-by="$index" v-for="unit in units" :class="\'page-item \' + unit.class" :disabled="unit.disabled">' + '<a @click.prevent="setPage(unit.page)" class="page-link" :href="setUrl(unit)" :aria-label="unit.ariaLabel">' + '<span v-if="unit.isPager" aria-hidden="true" v-html="unit.html"></span>' + '<span v-else v-html="unit.html"></span>' + '<span v-if="unit.isPager" class="sr-only" v-html="unit.srHtml"></span>' + '</a>' + '</li>' + '</ul>' + '</nav>'
 		}
-	
+
 	};
-	
+
 	zPagenav.install = function (Vue) {
-	
+
 		// define & register
 		Vue.component('zpagenav', {
 			template: zPagenav.default.template,
@@ -14338,18 +14338,18 @@ return /******/ (function(modules) { // webpackBootstrap
 			},
 			computed: {
 				units: function units() {
-	
+
 					var option = zPagenav.default;
 					var th = this;
 					var page = th.page || option.page;
 					var pageSize = th.pageSize || option.pageSize;
 					var total = th.total || option.total;
 					var maxLink = th.maxLink > 5 ? th.maxLink : 5;
-	
+
 					var linksCount = Math.ceil(total / pageSize);
-	
+
 					if (page > linksCount) page = linksCount + 0;
-	
+
 					var hasPrev = page > 1;
 					var hasNext = page < linksCount;
 					var realMaxLink = maxLink > linksCount ? linksCount : maxLink;
@@ -14360,10 +14360,10 @@ return /******/ (function(modules) { // webpackBootstrap
 					    shouldInsertDots23 = void 0;
 					var len2Start = void 0,
 					    len3Start = void 0;
-	
+
 					var units = [];
 					var arr = computeLens();
-	
+
 					units.push({
 						class: hasPrev ? '' : 'disabled',
 						page: hasPrev ? page - 1 : page,
@@ -14374,7 +14374,7 @@ return /******/ (function(modules) { // webpackBootstrap
 						srHtml: option.prevSrHtml,
 						ariaLabel: option.prevSrHtml
 					});
-	
+
 					var dotUnit = {
 						class: 'disabled',
 						page: page,
@@ -14383,11 +14383,11 @@ return /******/ (function(modules) { // webpackBootstrap
 						isNext: true,
 						html: option.dotsHtml
 					};
-	
+
 					for (var i = 0, len = arr.length; i < len; i++) {
 						pushUnit(arr[i]);
 					}
-	
+
 					units.push({
 						class: hasNext ? '' : 'disabled',
 						page: hasNext ? page + 1 : page,
@@ -14398,7 +14398,7 @@ return /******/ (function(modules) { // webpackBootstrap
 						srHtml: option.nextSrHtml,
 						ariaLabel: option.nextSrHtml
 					});
-	
+
 					function pushUnit(i) {
 						if (typeof i === 'number') {
 							units.push({
@@ -14412,7 +14412,7 @@ return /******/ (function(modules) { // webpackBootstrap
 							});
 						} else units.push(dotUnit);
 					}
-	
+
 					function computeLens() {
 						var a4 = Math.floor((realMaxLink - 2) / 2);
 						var a5 = realMaxLink - 3 - a4;
@@ -14434,14 +14434,14 @@ return /******/ (function(modules) { // webpackBootstrap
 						if (it < linksCount) arr.push(linksCount);
 						return arr;
 					}
-	
+
 					return units;
 					//end unit
 				}
 			}
 		});
 	};
-	
+
 	module.exports = exports.default = zPagenav;
 
 /***/ }
@@ -19061,7 +19061,7 @@ function formatToken(token, vm, single) {
 
 /**
  * For an attribute with multiple interpolation tags,
- * e.g. attr="some-{{thing | filter}}", in order to combine
+ * e.g. attr="some-{{thing-filter}}", in order to combine
  * the whole thing into a single watchable expression, we
  * have to inline those filters. This function does exactly
  * that. This is a bit hacky but it avoids heavy changes
